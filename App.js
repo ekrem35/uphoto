@@ -2,8 +2,8 @@
  * @flow
  **/
 
-import React from "react";
-import { SafeAreaView, StatusBar, Text, View, ScrollView } from "react-native";
+import React from 'react'
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native'
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default App;
+export default App
