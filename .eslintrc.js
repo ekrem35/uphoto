@@ -13,8 +13,13 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    prettier: {
-      'space-before-function-paren': ['error', 'never']
-    }
+    'space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'always',
+        named: 'never',
+        asyncArrow: 'always'
+      }
+    ]
   }
 }
