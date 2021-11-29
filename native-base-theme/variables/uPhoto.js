@@ -134,7 +134,7 @@ export default {
   checkboxTextShadowRadius: 0,
 
   // Color
-  brandPrimary: platform === PLATFORM.IOS ? '#007aff' : '#3F51B5',
+  brandPrimary: '#1B1553',
   brandInfo: '#62B1F6',
   brandSuccess: '#5cb85c',
   brandDanger: '#d9534f',
@@ -289,7 +289,7 @@ export default {
 
   // Text
   textColor: '#FFF',
-  inverseTextColor: '#000',
+  inverseTextColor: '#FFF',
   noteFontSize: 14,
   get defaultTextColor() {
     return this.textColor
