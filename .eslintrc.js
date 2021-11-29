@@ -4,6 +4,7 @@ module.exports = {
     es2021: true
   },
   extends: ['plugin:react/recommended', 'standard'],
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -20,6 +21,7 @@ module.exports = {
         named: 'never',
         asyncArrow: 'always'
       }
-    ]
+    ],
+    'multiline-ternary': ['error', 'never']
   }
 }
