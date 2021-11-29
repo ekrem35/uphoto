@@ -2,7 +2,15 @@
  * @flow
  **/
 import React from 'react'
-import { Header as NBHeader, Left, Right, Body, Title, Icon } from 'native-base'
+import {
+  Header as NBHeader,
+  Left,
+  Right,
+  Body,
+  Title,
+  Icon,
+  View
+} from 'native-base'
 import { TouchableOpacity } from 'react-native'
 import { goBack } from '../Router/RootNavigation'
 
@@ -20,8 +28,12 @@ const Header = (props: Props) => {
       androidStatusBarColor="#1B1553"
     >
       <Left>
-        {home ? null : (
-          <TouchableOpacity onPress={goBack}>
+        {home ? (
+          <View style={{ paddingLeft: 6 }}>
+            <Icon type="Ionicons" name="image" />
+          </View>
+        ) : (
+          <TouchableOpacity style={{ paddingLeft: 6 }} onPress={goBack}>
             <Icon type="AntDesign" name="left"></Icon>
           </TouchableOpacity>
         )}
