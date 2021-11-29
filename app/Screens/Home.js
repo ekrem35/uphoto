@@ -1,11 +1,15 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { Container, Content, Text } from 'native-base'
+import Header from '../Components/Header'
 
 const Home = () => {
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <Container>
+      <Header></Header>
+      <Content>
+        <Text>Home.js</Text>
+      </Content>
+    </Container>
   )
 }
 
