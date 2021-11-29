@@ -1,8 +1,17 @@
+/**
+ * @flow
+ */
 import React from 'react'
 import { Button, Container, Content, Text, View, Icon } from 'native-base'
 import Header from '../Components/Header'
 import { StyleSheet } from 'react-native'
 import { useSelector } from 'react-redux'
+
+type Props = {
+  navigation: {
+    navigate: Function
+  }
+}
 
 function NoSession() {
   return (
@@ -10,6 +19,9 @@ function NoSession() {
       <View style={styles.noSessionContentView}>
         <Icon style={styles.noSessionIcon} name="search"></Icon>
         <Text style={styles.noSessionText}>No sesssion yet</Text>
+        <Text style={styles.noSessionNote}>
+          You can add image by clicking the create button.
+        </Text>
       </View>
     </View>
   )
@@ -19,18 +31,24 @@ function SessionList() {
   return null
 }
 
-const Home = () => {
+const Home = (props: Props) => {
+  const { navigation } = props
   const { sessions } = useSelector((state) => ({
     sessions: state.sessions
   }))
   return (
     <Container>
-      <Header />
+      <Header home />
       <Content contentContainerStyle={styles.contentContainerStyle}>
         {sessions.length === 0 ? <NoSession /> : <SessionList />}
       </Content>
       <View style={styles.bottomButtonView}>
-        <Button bordered iconLeft full>
+        <Button
+          onPress={() => navigation.navigate('CreateSession')}
+          bordered
+          iconLeft
+          full
+        >
           <Icon type="Entypo" name="images" />
           <Text>Create Sesssion</Text>
         </Button>
@@ -53,7 +71,12 @@ const styles = StyleSheet.create({
     marginTop: 12,
     fontStyle: 'italic'
   },
-  noSessionIcon: { fontSize: 64 }
+  noSessionIcon: { fontSize: 64 },
+  noSessionNote: {
+    fontSize: 13,
+    marginTop: 6,
+    fontStyle: 'italic'
+  }
 })
 
 export default Home

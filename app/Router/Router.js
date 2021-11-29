@@ -16,6 +16,7 @@ const Router = () => {
         initialRouteName="Home"
       >
         <Stack.Screen name="Home" component={Screens.Home} />
+        <Stack.Screen name="CreateSession" component={Screens.CreateSession} />
       </Stack.Navigator>
     </NavigationContainer>
   )
