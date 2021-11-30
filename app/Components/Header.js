@@ -23,9 +23,9 @@ const Header = (props: Props) => {
   const { home, title } = props
   return (
     <NBHeader
-      style={{ backgroundColor: '#1B1553' }}
+      style={{ backgroundColor: '#161B22' }}
       iosBarStyle="light-content"
-      androidStatusBarColor="#1B1553"
+      androidStatusBarColor="#161B22"
     >
       <Left>
         {home ? (

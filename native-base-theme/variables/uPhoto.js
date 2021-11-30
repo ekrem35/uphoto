@@ -134,7 +134,7 @@ export default {
   checkboxTextShadowRadius: 0,
 
   // Color
-  brandPrimary: '#1B1553',
+  brandPrimary: '#30363C',
   brandInfo: '#62B1F6',
   brandSuccess: '#5cb85c',
   brandDanger: '#d9534f',
@@ -143,7 +143,7 @@ export default {
   brandLight: '#a9a9a9',
 
   // Container
-  containerBgColor: '#9793C0',
+  containerBgColor: '#0e1117',
 
   // Date Picker
   datePickerFlex: 1,

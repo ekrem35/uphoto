@@ -13,7 +13,7 @@ import uPhotoTheme from '../native-base-theme/variables/uPhoto'
 
 const App = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#1B1553' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#161B22' }}>
       <StatusBar barStyle="dark-content" />
       <Root>
         <StyleProvider style={getTheme(uPhotoTheme)}>
