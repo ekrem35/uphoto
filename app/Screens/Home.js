@@ -45,7 +45,6 @@ const Home = (props: Props) => {
       <View style={styles.bottomButtonView}>
         <Button
           onPress={() => navigation.navigate('CreateSession')}
-          bordered
           iconLeft
           full
         >
