@@ -1,7 +1,7 @@
 import Home from './Home'
-import CreateSession from './CreateSession'
+import Sessions from './Sessions'
 
 export default {
   Home,
-  CreateSession
+  Sessions
 }
