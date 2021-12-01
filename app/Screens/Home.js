@@ -2,10 +2,11 @@
  * @flow
  */
 import React from 'react'
-import { Button, Container, Content, Text, View, Icon } from 'native-base'
+import { Button, Container, Content, Text, View, Icon, Item } from 'native-base'
 import Header from '../Components/Header'
-import { StyleSheet } from 'react-native'
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native'
 import { useSelector } from 'react-redux'
+import moment from 'moment'
 
 type Props = {
   navigation: {
@@ -27,8 +28,46 @@ function NoSession() {
   )
 }
 
-function SessionList() {
-  return null
+function SessionList({
+  sessions,
+  navigation
+}: {
+  sessions: {
+    dateTime: Number,
+    images: Array<String>
+  },
+  navigation: Object
+}) {
+  const renderSessionItem = ({ item, index }) => {
+    return (
+      <Item
+        style={{
+          padding: 12,
+          paddingLeft: 0,
+          justifyContent: 'space-between'
+        }}
+      >
+        <View>
+          <Text>Session {index + 1}</Text>
+          <Text>{moment(item.dateTime * 1000).format('LLL')}</Text>
+        </View>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate('EditSession', { sessionId: index })
+          }
+        >
+          <Icon name="create"></Icon>
+        </TouchableOpacity>
+      </Item>
+    )
+  }
+  return (
+    <FlatList
+      data={sessions}
+      renderItem={renderSessionItem}
+      keyExtractor={(item, index) => String(index)}
+    />
+  )
 }
 
 const Home = (props: Props) => {
@@ -40,7 +79,11 @@ const Home = (props: Props) => {
     <Container>
       <Header home />
       <Content contentContainerStyle={styles.contentContainerStyle}>
-        {sessions.length === 0 ? <NoSession /> : <SessionList />}
+        {sessions.length === 0 ? (
+          <NoSession />
+        ) : (
+          <SessionList sessions={sessions} navigation={navigation} />
+        )}
       </Content>
       <View style={styles.bottomButtonView}>
         <Button
