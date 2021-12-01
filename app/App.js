@@ -7,9 +7,10 @@ import { Root, StyleProvider } from 'native-base'
 import { SafeAreaView, StatusBar } from 'react-native'
 import { Provider } from 'react-redux'
 import Router from './Router/Router'
-import store from './state/store'
+import { store, persistor } from './state/store'
 import getTheme from '../native-base-theme/components'
 import uPhotoTheme from '../native-base-theme/variables/uPhoto'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const App = () => {
   return (
@@ -18,7 +19,9 @@ const App = () => {
       <Root>
         <StyleProvider style={getTheme(uPhotoTheme)}>
           <Provider store={store}>
-            <Router />
+            <PersistGate persistor={persistor} loading={null}>
+              <Router />
+            </PersistGate>
           </Provider>
         </StyleProvider>
       </Root>
